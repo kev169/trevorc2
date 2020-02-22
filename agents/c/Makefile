@@ -14,7 +14,7 @@ posix:
 	gcc -Wall -I ./include/ src/main.c src/crypto.c src/aes.c src/encode.c src/decode.c src/sha256.c posix_src/http.c -o ./tc2_agent.out
 
 posixd:
-	gcc -Wall -I ./include/ -DDEBUG src/main.c src/crypto.c src/aes.c src/encode.c src/decode.c src/sha256.c posix_src/http.c -o ./tc2_agent.out
+	gcc -g -Wall -I ./include/ -DDEBUG src/main.c src/crypto.c src/aes.c src/encode.c src/decode.c src/sha256.c posix_src/http.c -o ./tc2_agent.out
 
 scanbuild:
 	$(CC) -I ./include/ src/main.c src/crypto.c src/aes.c src/encode.c src/decode.c src/sha256.c posix_src/http.c -o ./tc2_agent.out

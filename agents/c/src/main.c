@@ -63,10 +63,6 @@ void connectTrevor(void)
     DEBUG_PRINT("Set padding\n");
     outdata = encrypt_buffer((unsigned char*)encodedData,
         strlen(hostnameString) + padding, &outdataLen);
-    if (encodedData) {
-        free(encodedData);
-        encodedData = NULL;
-    }
     DEBUG_PRINT("encrypted buffer len: %d\n", outdataLen);
     /*Response looks like its always null terminated*/
     encodedData = b64_encode(outdata, outdataLen);
@@ -367,9 +363,6 @@ int main(int argc, char* argv[])
             = time_interval1 + (rand() % (time_interval2 - time_interval1));
         DEBUG_PRINT("Sleeping for : %d\n", sleepTime);
         (void)sleep(sleepTime);
-    }
-    if (gcookie) {
-        free(gcookie);
     }
     return 0;
 }

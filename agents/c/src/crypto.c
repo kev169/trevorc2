@@ -32,7 +32,7 @@ unsigned char* encrypt_buffer(
     unsigned char* outdata = NULL;
     iv = getRandomIv();
 
-    outdata = calloc(indataLen + 17, 1);
+    outdata = calloc(indataLen + 15, 1);
     if (outdata == NULL) {
         goto cleanup;
     }
@@ -47,10 +47,6 @@ unsigned char* encrypt_buffer(
     memcpy(outdata + 16, indata, indataLen);
     *outdataLen = indataLen + 16;
 cleanup:
-    if (iv) {
-        free(iv);
-        iv = NULL;
-    }
     return outdata;
 }
 
